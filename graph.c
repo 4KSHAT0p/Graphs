@@ -22,7 +22,7 @@ void ADDEDGE(G *, int, int);
 void DISPLAY(G);
 void BFS(G);
 void DFS(G);
-
+void dfsUtil(G,int,bool*);
 
 
 int main()
@@ -161,5 +161,31 @@ void BFS(G graph)
 
 void DFS(G graph)
 {
-    
+    int starting_node;
+    printf("Enter the starting node for DFS traversal\n");
+    scanf("%d", &starting_node);
+
+    bool visited[graph.countVertex];
+
+    for (int i = 0; i < graph.countVertex; i++)
+    {
+          visited[i] = false;
+    }
+
+    dfsUtil(graph, starting_node,visited);
+
+}
+
+void dfsUtil(G gg,int start, bool* vis)
+{
+    vis[start]=1;
+    printf("%d\n",start);
+
+    for(int i=1; i<(*(gg.adjList+start))->chainCount; i++)
+    {
+        if(!vis[(*(gg.adjList+start)+i)->Data])
+        {
+            dfsUtil(gg,(*(gg.adjList+start)+i)->Data,vis);
+        }
+    }
 }
