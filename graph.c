@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include<stdbool.h>
-// assuming that the user is not madarchod (i.e. she is not entering redundant values)
+// assuming that the user is not dumb (i.e. she is not entering redundant values)
 // undirected graph
 // zero based indexing nodes
 
